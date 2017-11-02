@@ -51,6 +51,9 @@ textarea {
 body, .field input, textarea, .main-btn {
   font-family: 'Fira Sans', Arial, sans-serif; }
 
+.field input, .field__error {
+  transition: .3s; }
+
 * {
   box-sizing: border-box; }
 
@@ -112,6 +115,18 @@ body {
 .field_notvalid input {
   border-color: red;
   color: red; }
+
+.field_notvalid .field__error {
+  opacity: 1;
+  visibility: visible; }
+
+.field_valid input {
+  border-color: #43d08a;
+  color: #43d08a; }
+
+.field_valid .field__error {
+  opacity: 0;
+  visibility: visible; }
 
 .field__error {
   position: absolute;

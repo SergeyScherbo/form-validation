@@ -1,11 +1,15 @@
 'use strict';
 
-var field = document.querySelector('.field input');
+var field = document.querySelectorAll('.field input');
 
-field.addEventListener('change', function () {
-  if (this.value.length < 1) {
-    this.parentNode.classList.add('field_notvalid');
-    var curError = this.querySelector('.field__error');
-    curError.classList.add('show');
-  }
-});
+for (var i = 0; i < field.length; i++) {
+  field[i].addEventListener('blur', function (e) {
+    if (this.value.length < 1) {
+      this.parentNode.classList.remove('field_valid');
+      this.parentNode.classList.add('field_notvalid');
+    } else {
+      this.parentNode.classList.remove('field_notvalid');
+      this.parentNode.classList.add('field_valid');
+    }
+  });
+}
